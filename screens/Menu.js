@@ -148,11 +148,11 @@ export default class App extends React.Component {
   };
 // อัพเดทค่า Maps ทุก 5 วินาที
   RefreshMaps = async () => {
-    console.log('state ::: ',this.state.region)
+    // console.log('state ::: ',this.state.region)
     try { //ดึงค่าตำแหน่งของ Map ที่อยู่ใน Localstorage มาอัพเดท
       const value = await AsyncStorage.getItem("@region");
       if (value !== null) {
-        console.log('AsyncStorage ::: ',value)
+        // console.log('AsyncStorage ::: ',value)
         await this.setState({ region: JSON.parse(value) });
 
       }
@@ -177,15 +177,13 @@ export default class App extends React.Component {
       // console.log("busStop :::: ", busStop)
       await this.setState({ busStop })
     } else {
-      // ถ้ามีให้ใช้ Api นี้ พร้อมส่งตัวแปร searchText ไปด้วย
-      const response = await fetch(`${SettingApp}/SearchBusStop?searchText=${this.state.searchTxt}`)
+      const response = await fetch(`${SettingApp}/SearchBusStop?searchText=${this.state.searchTxt}`) // ถ้ามีให้ใช้ Api นี้ พร้อมส่งตัวแปร searchText ไปด้วย
+      console.log("response :::: ",response.status)
       const tempBusStop = await response.json() // แปลงค่าที่รับมาเป็น Json
       const busStop = tempBusStop[1]  //นำค่าที่ได้ใส่ในตัวแปรนี้
+      if(response.status) Alert.alert("ไม่พบข้อมูลที่ต้องการค้นหา กรุณาลองใหม่อีกครั้ง");
       await this.setState({ busStop })
     }
-
-
-
   }
 //////////////////////////////////////////////
   fetchbusLineData = async () => { //ดึงข้อมูลสายรถ

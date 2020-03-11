@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {SettingApp} from '../appConfig';
 import {AsyncStorage} from 'react-native';
-
+import { YellowBox } from 'react-native';
 export default class HomeScreen extends React.Component {
 
   static navigationOptions = {

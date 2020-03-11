@@ -26,7 +26,7 @@ export default class LinksScreen extends React.Component {
 
   state = {
     openMenu: false, // เปิด menu
-    time: moment().format("HH:mm:ss"), // เก็บค่าเวลา ณ ปัจจุบัน
+    time: moment().format("HH:mm"), // เก็บค่าเวลา ณ ปัจจุบัน
     status: "start", // สถานะการทำงาน
     BreakDown: false, // สถานะพาหนะ
     User: "", // ค่า User
@@ -72,7 +72,7 @@ export default class LinksScreen extends React.Component {
     }
     // เปลี่ยนเวลาเป็นเวลาปัจจุบัน
     this.setState({
-      time: moment().format("HH:mm:ss")
+      time: moment().format("HH:mm")
     });
   };
 
@@ -384,7 +384,7 @@ export default class LinksScreen extends React.Component {
 
         <Text style={styles.showCompany}>{User.Company}</Text>
         <Text style={styles.showTime}>
-          {/* {moment().format('HH:mm:ss')} */}
+          {/* {moment().format('HH:mm')} */}
           {this.state.time}
         </Text>
         <BreakdownButton
