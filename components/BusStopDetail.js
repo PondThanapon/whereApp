@@ -44,7 +44,7 @@ export default class BusStopDetail extends React.Component {
           style={{ width: 50, height: 50, marginEnd : 20  }}
         />
         <View>
-          <Text style={{fontSize:30, color : 'white'}}>สาย {this.props.data.busline_name}</Text>
+          <Text style={{fontSize:30, color : 'white'}}>{this.props.data.busline_name}</Text>
           <Text  style={{fontSize:15, color : 'grey'}}>{this.props.data.busline_detail}</Text>
         </View>
       </TouchableOpacity>

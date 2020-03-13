@@ -282,7 +282,7 @@ export default class App extends React.Component {
   
   componentWillUnmount = () => {
     navigator.geolocation.clearWatch(this.watchID)
-    clearInterval(this.intervalID);
+    // clearInterval(this.intervalID);
   }
 
   // เมื่อไม่ได้ทำการพิมพ์ค้นหา
